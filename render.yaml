@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: caoyeji
+    env: php
+    buildCommand: ""
+    startCommand: "php -S 0.0.0.0:10000 -t webroot"
+    # 你需要把这里的端口号改成 Render 为你分配的那个
+    # 这个端口会在你创建服务后，由平台提供，并自动注入到 PORT 环境变量中
+    # 所以更推荐用 -S 0.0.0.0:${PORT} -t webroot
+    envVars:
+      - key: PHP_VERSION
+        value: 8.2
+      - key: DISABLE_HTTPS_REDIRECT
+        value: true
